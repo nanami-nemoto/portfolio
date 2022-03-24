@@ -1,0 +1,71 @@
+/* エラーメッセージ用のスタイル */
+.error {
+  color: red;
+}
+/* 成功メッセージ用のスタイル */
+.success {
+  color: green;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+/*body全体*/
+body {
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 1000px;
+}
+
+/*ヘッダー(共通)*/
+.header_list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.header_list li:not(:last-child) {
+  margin-right: 30px
+}
+
+/*ヘッダー(ログイン後)*/
+.header_right {
+  margin-left: auto;
+  margin-bottom: 0;
+}
+
+.header_logo {
+  width: 10%;
+  height: auto;
+}
+
+/*メイン(共通)*/
+.main_contents {
+  margin-top: 30px;
+  margin-left: 100px;
+}
+
+.main_contents h1 {
+  margin-bottom: 20px;
+}
+
+/*メイン(投稿一覧)*/
+.comment_list {
+  list-style-type: none;
+  padding-left: 0;
+  border: solid 1px black;
+}
+
+.comment_list li {
+  padding: 15px;
+}
+
+.comment_list li:not(:last-child) {
+  border-bottom: solid 1px black;
+}
+
+.comment_image {
+  width: 300px;
+  height: auto;
+}
