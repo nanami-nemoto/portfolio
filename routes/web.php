@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+Route::get('/', 'PostController@index')->name('posts.index');
+
+Route::resource('posts', 'PostController')->only([
+    'create', 'store', 'edit', 'update', 'destroy'
+]);
+
+Route::get('/posts/{post}/edit_image', 'PostController@editImage')->name('posts.edit_image');
+Route::patch('/posts/{post}/edit_image', 'PostController@updateImage')->name('posts.update_image');
