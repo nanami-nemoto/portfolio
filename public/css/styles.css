@@ -20,7 +20,7 @@ body {
 }
 
 /*ヘッダー(共通)*/
-.header_list {
+.header_list, .recommended_list {
   list-style-type: none;
   padding-left: 0;
 }
@@ -65,7 +65,15 @@ body {
   border-bottom: solid 1px black;
 }
 
-.comment_image {
-  width: 300px;
+.comment_image, .user_image {
+  width: 250px;
   height: auto;
+}
+
+.comment_index {
+  margin-top: 100px
+}
+
+.recommended_users {
+  margin-bottom: 20px;
 }

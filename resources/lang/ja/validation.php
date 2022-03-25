@@ -150,7 +150,8 @@ return [
         'email' => 'メールアドレス',
         'password' => 'パスワード',
         'comment' => 'コメント',
-        'image' => '画像'
+        'image' => '画像',
+        'profile' => '自己紹介'
     ],
     
     'custom' => [
