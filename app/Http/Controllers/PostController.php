@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
 use App\Http\Requests\PostRequest;
 use App\Http\Requests\PostImageRequest;
 
@@ -18,9 +19,12 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = \Auth::user()->posts()->latest()->get();
+        $user = \Auth::user();
+        $follow_user_ids = $user->follow_users->pluck('id');
+        $user_posts = $user->posts()->orWhereIn('user_id', $follow_user_ids)->latest()->get();
         return view('posts.index', [
-            'posts' => $posts,
+            'posts' => $user_posts,
+            'recommended_users' => User::recommend($user->id, $follow_user_ids)->get()
         ]);
     }
 

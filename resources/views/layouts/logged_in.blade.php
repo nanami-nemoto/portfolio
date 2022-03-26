@@ -9,6 +9,9 @@
     <div class="header_right">
       <ul class="flex header_list header_right">
         <li>
+          <a href="{{ route('users.show', Auth::id()) }}">ユーザープロフィール</a>
+        </li>
+        <li>
           <a class="btn btn-info" href="{{ route('posts.create') }}" role="button">
             新規投稿
           </a>
