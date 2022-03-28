@@ -77,3 +77,12 @@ body {
 .recommended_users {
   margin-bottom: 20px;
 }
+
+.search_form {
+  text-align: right;
+  margin-bottom: 30px
+}
+
+.search_form input[type="text"] {
+  width: 250px;
+}

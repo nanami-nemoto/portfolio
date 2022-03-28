@@ -17,15 +17,26 @@ class PostController extends Controller
     }
 
 
-    public function index()
+    public function index(Request $request)
     {
         $user = \Auth::user();
         $follow_user_ids = $user->follow_users->pluck('id');
         $user_posts = $user->posts()->orWhereIn('user_id', $follow_user_ids)->latest()->get();
+        
+        $keyword = $request->input('keyword', '');
+        $search_posts = '';
+        if(!empty($keyword)) {
+            $query = Post::query();
+            $search_posts = $query->where('user_id', '!=', $user->id)->where('comment','like', '%' .$keyword. '%')->latest()->get();
+        }
+        
         return view('posts.index', [
             'posts' => $user_posts,
-            'recommended_users' => User::recommend($user->id, $follow_user_ids)->get()
+            'recommended_users' => User::recommend($user->id, $follow_user_ids)->get(),
+            'keyword' => $keyword,
+            'search_posts' => $search_posts
         ]);
+        
     }
 
     public function create()
